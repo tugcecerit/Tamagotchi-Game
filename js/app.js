@@ -94,6 +94,7 @@ class Tamagotchi {
   document.getElementById("hungerlevel").style.width = this.hungerLevel + "%";
     if (this.hungerLevel === 0) {
         clearInterval()
+        return die();
     } else if (this.hungerLevel <= 50 && this.hungerLevel >= 30) {
         document.getElementById("hungerlevel").style.backgroundColor = "orange"
     } else if (this.hungerLevel < 30) {
@@ -110,6 +111,7 @@ class Tamagotchi {
   document.getElementById("sleepinesslevel").style.width = this.sleepinessLevel + "%";
     if (this.sleepinessLevel === 0) {
         clearInterval()
+        return die();
     } else if (this.sleepinessLevel <= 50 && this.sleepinessLevel >= 30) {
         document.getElementById("sleepinesslevel").style.backgroundColor = "orange"
     } else if (this.sleepinessLevel < 30) {
@@ -126,14 +128,15 @@ class Tamagotchi {
   document.getElementById("boredomlevel").style.width = this.boredomLevel + "%";
     if (this.boredomLevel === 0) {
         clearInterval()
+        return die();
     } else if (this.boredomLevel <= 50 && this.boredomLevel >= 30) {
         document.getElementById("boredomlevel").style.backgroundColor = "orange"
     } else if (this.boredomLevel < 30) {
         document.getElementById("boredomlevel").style.backgroundColor = "red"
-    }
+  }
   }
   
-function increaseHunger() {
+  function increaseHunger() {
     this.hungerLevel += 10;
     document.getElementById("hungerlevel").style.width = this.hungerLevel + "%";
     if (this.hungerLevel >= 100) {
@@ -149,21 +152,21 @@ function increaseHunger() {
   
   
   function increaseSleepiness() {
-    this.sleepinessLevel += 10;
-    document.getElementById("sleepinesslevel").style.width = this.sleepinessLevel + "%";
-    if (this.sleepinessLevel >= 100) {
-        return 
-    } else if (this.sleepinessLevel <= 100 && this.sleepinessLevel >= 50) {
-        document.getElementById("sleepinesslevel").style.backgroundColor = "#2BC253"
-    } else if (this.sleepinessLevel <= 50 && this.sleepinessLevel >= 30) {
-        document.getElementById("sleepinesslevel").style.backgroundColor = "orange"
-    } else if (this.sleepinessLevel < 30) {
-        document.getElementById("sleepinesslevel").style.backgroundColor = "red"
-    }
-    }
+  this.sleepinessLevel += 10;
+  document.getElementById("sleepinesslevel").style.width = this.sleepinessLevel + "%";
+  if (this.sleepinessLevel >= 100) {
+    return 
+  } else if (this.sleepinessLevel <= 100 && this.sleepinessLevel >= 50) {
+    document.getElementById("sleepinesslevel").style.backgroundColor = "#2BC253"
+  } else if (this.sleepinessLevel <= 50 && this.sleepinessLevel >= 30) {
+    document.getElementById("sleepinesslevel").style.backgroundColor = "orange"
+  } else if (this.sleepinessLevel < 30) {
+    document.getElementById("sleepinesslevel").style.backgroundColor = "red"
+  }
+  }
   
     function increaseBoredom() {
-        this.boredomLevel += 10;
+       this.boredomLevel += 10;
         document.getElementById("boredomlevel").style.width = this.boredomLevel + "%";
         if (this.boredomLevel >= 100) {
             return
@@ -175,3 +178,23 @@ function increaseHunger() {
             document.getElementById("hungerlevel").style.backgroundColor = "red"
         }
         }
+  
+  
+    function die() {
+        if (this.hungerLevel === 0 || this.sleepinessLevel === 0 || this.boredomLevel === 0) {
+            pic.src = "pic/gameover.png"
+            hunger.remove()
+            boredom.remove()
+            sleepiness.remove()
+            boredomBarNames.remove()
+            sleepinessBarNames.remove()
+            hungerBarNames.remove()
+            playButton.remove()
+            eatButton.remove()
+            sleepButton.remove()
+            ageShow.remove()
+            nameShow.remove()
+            diedBaby.style.display = "block"
+            byebye.style.display = "block"
+        }
+    }
