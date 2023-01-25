@@ -43,9 +43,9 @@ class Tamagotchi {
     playButton.style.display = "inline";
     ageShow.style.display = "block";
     setInterval(ageOf, 20000);
-    setTimeout(() => { setInterval(decreaseHunger, 5000);},20000);
-    setTimeout(() => { setInterval(decreaseSleepiness, 5000);}, 20000);
-    setTimeout(() => { setInterval(decreaseBoredom, 5000);}, 20000);
+    setTimeout(() => { setInterval(decreaseHunger, 7000);},20000);
+    setTimeout(() => { setInterval(decreaseSleepiness, 7000);}, 20000);
+    setTimeout(() => { setInterval(decreaseBoredom, 7000);}, 20000);
     setTimeout(() => pic.src = "pic/born.png", 20000);
     setTimeout(() => document.body.style.backgroundColor = "aliceblue", 10000);
     setTimeout(() => sleepButton.addEventListener("click", (e) => {
@@ -59,7 +59,6 @@ class Tamagotchi {
         increaseHunger();
         pic.src = "pic/eat.png"
         document.body.style.backgroundColor = "aliceblue"
-        hungerLevel += 10
     }),20000);
     setTimeout(() => playButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -98,7 +97,9 @@ class Tamagotchi {
     } else if (this.hungerLevel <= 50 && this.hungerLevel >= 30) {
         document.getElementById("hungerlevel").style.backgroundColor = "orange"
     } else if (this.hungerLevel < 30) {
-        document.getElementById("hungerlevel").style.backgroundColor = "red" 
+        document.getElementById("hungerlevel").style.backgroundColor = "red";
+        // pic.src = "pic/cry.png";
+        // document.body.style.backgroundColor = "maroon";
     }
   }
   
@@ -115,7 +116,9 @@ class Tamagotchi {
     } else if (this.sleepinessLevel <= 50 && this.sleepinessLevel >= 30) {
         document.getElementById("sleepinesslevel").style.backgroundColor = "orange"
     } else if (this.sleepinessLevel < 30) {
-        document.getElementById("sleepinesslevel").style.backgroundColor = "red"
+        document.getElementById("sleepinesslevel").style.backgroundColor = "red";
+        // pic.src = "pic/cry.png";
+        // document.body.style.backgroundColor = "maroon";
     }
   }
   
@@ -132,8 +135,10 @@ class Tamagotchi {
     } else if (this.boredomLevel <= 50 && this.boredomLevel >= 30) {
         document.getElementById("boredomlevel").style.backgroundColor = "orange"
     } else if (this.boredomLevel < 30) {
-        document.getElementById("boredomlevel").style.backgroundColor = "red"
-  }
+        document.getElementById("boredomlevel").style.backgroundColor = "red";
+        // pic.src = "pic/cry.png";
+        // document.body.style.backgroundColor = "maroon";
+    }
   }
   
   function increaseHunger() {
@@ -173,16 +178,16 @@ class Tamagotchi {
         } else if (this.boredomLevel <= 100 && this.boredomLevel >= 50) {
             document.getElementById("boredomlevel").style.backgroundColor = "#2BC253"
         } else if (this.boredomLevel <= 50 && this.boredomLevel >= 30) {
-            document.getElementById("hungerlevel").style.backgroundColor = "orange"
+            document.getElementById("boredomlevel").style.backgroundColor = "orange"
         } else if (this.boredomLevel < 30) {
-            document.getElementById("hungerlevel").style.backgroundColor = "red"
+            document.getElementById("boredomlevel").style.backgroundColor = "red"
         }
         }
   
   
     function die() {
         if (this.hungerLevel === 0 || this.sleepinessLevel === 0 || this.boredomLevel === 0) {
-            pic.src = "pic/gameover.png"
+            pic.src = "pic/opps.png"
             hunger.remove()
             boredom.remove()
             sleepiness.remove()
