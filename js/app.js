@@ -198,3 +198,9 @@ class Tamagotchi {
             byebye.style.display = "block"
         }
     }
+
+    function animation() {
+        setInterval(() => {
+        const horizontal = Math.floor(Math.random() * 15)
+        const vertical = Math.floor(Math.random() * 25)
+        pic.style.transform = `translate(${horizontal}px,${vertical}px)`}, 500)}      
