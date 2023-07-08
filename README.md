@@ -1,6 +1,9 @@
 # Tamagotchi Game
 This is a mini-project that features an interactive Tamagotchi game developed using HTML, CSS, and JavaScript. The game provides a dynamic and responsive user interface with engaging animations and sound effects to enhance the overall user experience.
 
+## Website
+https://tamagotchi-game.vercel.app/
+
 ## Features
 Interactive Gameplay: The game allows users to interact with their virtual pet(monster), providing a unique Tamagotchi experience. Users can feed, play with, and take care of their virtual pet.
 
